@@ -15,8 +15,11 @@ export const useData = (query: string, interval: number) => {
 
   useEffect(() => {
     async function loadData() {
-      const result = await getData(query);
-      setData(result);
+      try {
+        const result = await getData(query);
+        setData(result);
+      } catch {}
+
       setLoading(true);
     }
 
